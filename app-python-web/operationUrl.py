@@ -60,8 +60,7 @@ class operationUrl(object):
 
     def timer(self, course):
         # 获取打开页面数量
-        while (self.driver.window_handles >= 7):
-            sleep(60 * 1)
+        if (self.driver.window_handles >= 7):
             course.click()
             self.driver.switch_to.window(self.driver.window_handles[-1])
             self.driver.current_window_handle

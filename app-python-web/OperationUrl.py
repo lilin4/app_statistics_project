@@ -167,6 +167,9 @@ def course_while(self):
                     buttons = self.driver.find_elements_by_class_name("btnok")
                     if len(buttons) > 1:
                         buttons[1].click()
+                        print("handler["+x+"]"+":检测到10分钟提醒按钮")
+                    else:
+                        print("handler["+x+"]"+":没有检测到10分钟提醒按钮")
                     #self.driver.switch_to.alert.click()
                 except:
                     print("handler["+x+"]"+":没有检测到10分钟提醒按钮")

@@ -16,20 +16,22 @@ public class PropertiesUtil {
             //属性描述符
             PropertyDescriptor[] propertyDescriptors = bisrc.getPropertyDescriptors();
             for (PropertyDescriptor pd : propertyDescriptors) {
+                //set方法
+                //Method setMethod = pd.getWriteMethod();
+                // String name = setMethod.getName();
+                //Class<?>[] parameterTypes = setMethod.getParameterTypes();
                 //get方法
                 Method getMethod = pd.getReadMethod();
-                //set方法
-                Method setMethod = pd.getWriteMethod();
                 //方法名
-                String name = setMethod.getName();
+                String name =getMethod.getName();
                 //方法的类型
-                Class<?>[] parameterTypes = setMethod.getParameterTypes();
+                Class<?>[] parameterTypes =getMethod.getParameterTypes();
                 //获取src get方法返回值
                 Object value = getMethod.invoke(src);
                 try {
-                   // setMethod.invoke(dest, value);
-                    Method destSteter = dest.getClass().getMethod(name, parameterTypes);
-                    destSteter.invoke(dest,value);
+                    //Method destSteter = 
+                    dest.getClass().getMethod(name, parameterTypes).invoke(dest,value);
+                    //destSteter.invoke(dest,value);
                 } catch (Exception e) {
                     continue;
                 }

@@ -2,7 +2,6 @@ package com.atguigu.app.client;
 
 import com.alibaba.fastjson.JSONObject;
 import com.atguigu.app.common.*;
-import com.it18zhang.app.common.*;
 import util.PropertiesUtil;
 
 import java.io.InputStream;
@@ -247,7 +246,7 @@ public class TestGenData {
 	public static void main(String[] args) {
 		Test1();
 	}
-
+	
 	private static void Test1() {
 		Random random = new Random();
 		try {

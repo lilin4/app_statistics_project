@@ -10,6 +10,7 @@
     <modules>
         <module>app-logs-collect-web</module>
         <module>app-analyze-common</module>
+        <module>app-analyze-common</module>
     </modules>
     <packaging>pom</packaging>
 

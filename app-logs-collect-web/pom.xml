@@ -57,6 +57,11 @@
             <version>1.2.70</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.maxmind.db</groupId>
+            <artifactId>maxmind-db</artifactId>
+            <version>1.0.0</version>
+        </dependency>
     </dependencies>
 
     <build>

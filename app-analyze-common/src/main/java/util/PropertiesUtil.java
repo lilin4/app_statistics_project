@@ -7,7 +7,14 @@ import java.lang.reflect.Method;
 
 public class PropertiesUtil {
 
-    public static void copyProperties(Object src, Object dest) {
+    public static void copyProperties(Object src, Object[] dests) {
+        for (Object dest : dests) {
+            copyProperties(src,dest);
+        }
+        
+    }
+    
+    private static void copyProperties(Object src, Object dest) {
         try {
             //源对象BI
             BeanInfo bisrc = Introspector.getBeanInfo(src.getClass());

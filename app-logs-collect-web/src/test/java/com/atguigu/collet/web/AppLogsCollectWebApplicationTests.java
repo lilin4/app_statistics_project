@@ -21,7 +21,7 @@ class AppLogsCollectWebApplicationTests {
             assert in !=null;
             Reader reader = new Reader(in);
             JsonNode jsonNode = reader.get(InetAddress.getByName("61.135.169.121"));
-            String name = jsonNode.get("").get("name").get("zh-CN").textValue();
+            String name = jsonNode.get("continent").get("names").get("zh-CN").textValue();
             System.out.println(name);
         }catch (Exception e){
             e.getMessage();

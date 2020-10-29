@@ -15,17 +15,5 @@ class AppLogsCollectWebApplicationTests {
     void contextLoads() {
         
     }
-
-    public static void main(String[] args) {
-        try (InputStream in = ClassLoader.getSystemResourceAsStream("GeoLite2-City.mmdb")){
-            assert in !=null;
-            Reader reader = new Reader(in);
-            JsonNode jsonNode = reader.get(InetAddress.getByName("61.135.169.121"));
-            String name = jsonNode.get("continent").get("names").get("zh-CN").textValue();
-            System.out.println(name);
-        }catch (Exception e){
-            e.getMessage();
-        }
-    }
-
+    
 }

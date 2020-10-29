@@ -8,16 +8,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import util.GeoUtil;
 import util.PropertiesUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("coll")
 @Slf4j
 public class CollectLogController {
+    
+    Map<String,GeoInfo> cache = new HashMap();
 
     @PostMapping("index")
     private Object list(@RequestBody AppLogEntity e, HttpServletRequest request) {
@@ -31,9 +36,27 @@ public class CollectLogController {
         verifyTime(e, diff);
         //2.基本属性复制
         copyBaseProperties(e);
-        
-        System.out.println(JSONObject.toJSONString(e));
+        //3.处理IP
+        String clientIp = request.getRemoteAddr();
+        processIp(clientIp,e);
+        //4. 
         return e;
+    }
+
+    private void processIp(String clientIp, AppLogEntity e) {
+        GeoInfo info = cache.get(clientIp);
+        if (null == info){
+            info = new GeoInfo();
+            info.setCountry(GeoUtil.getCountry(clientIp));
+            info.setProvince( GeoUtil.getProvince(clientIp));
+            cache.put(clientIp,info);
+
+        }
+        for (AppStartupLog log : e.getAppStartupLogs()) {
+            log.setCountry(info.getCountry());
+            log.setProvince(info.getProvince());
+            log.setIpAddress(clientIp);
+        }
     }
 
     /*private void processLogs(AppLogEntity e){

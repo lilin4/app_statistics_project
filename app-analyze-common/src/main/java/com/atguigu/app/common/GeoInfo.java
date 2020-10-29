@@ -1,7 +1,8 @@
 package com.atguigu.app.common;
 
 /**
- * Created by atguigu on 2017/11/8
+ *地理信息
+ *
  */
 public class GeoInfo extends AppBaseLog {
     private String country ;

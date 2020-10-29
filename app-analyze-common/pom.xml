@@ -12,4 +12,7 @@
     <artifactId>app-analyze-common</artifactId>
 
 
+    <dependencies>
+       
+    </dependencies>
 </project>

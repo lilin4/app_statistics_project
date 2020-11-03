@@ -1,7 +1,9 @@
-package util;
+package com.atguigu.app.util;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.maxmind.db.Reader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,6 +16,8 @@ import java.net.InetAddress;
  * @Created by 林立
  */
 public class GeoUtil {
+    private static final Logger logger = LoggerFactory.getLogger(GeoUtil.class);
+    
     private static InputStream in;
     private static Reader reader;
     static {
@@ -35,16 +39,16 @@ public class GeoUtil {
     public static String getCountry(String ip){
         try {
             return reader.get(InetAddress.getByName(ip)).get("country").get("names").get("zh-CN").textValue();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            logger.error(e.getMessage());
         }
         return "";
     }  
     public static String getProvince(String ip){
         try {
             return reader.get(InetAddress.getByName(ip)).get("subdivisions").get(0).get("names").get("zh-CN").textValue();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            logger.error(e.getMessage());
         }
         return "";
     }

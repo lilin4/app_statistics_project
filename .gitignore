@@ -18,3 +18,4 @@ app-es-client/app-es-client.iml
 app-logs-phone/app-logs-phone.iml
 venv/
 app-es-client.iml
+/.idea/

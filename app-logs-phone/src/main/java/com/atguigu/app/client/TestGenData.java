@@ -2,7 +2,7 @@ package com.atguigu.app.client;
 
 import com.alibaba.fastjson.JSONObject;
 import com.atguigu.app.common.*;
-import util.PropertiesUtil;
+import com.atguigu.app.util.PropertiesUtil;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -285,9 +285,9 @@ public class TestGenData {
 					//将对象转换成json string
 					String json = JSONObject.toJSONString(logEntity);
 					UploadUtil.upload(json);
-					Thread.sleep(2000);
+					Thread.sleep(60000);
 				} catch (Exception ex) {
-					System.out.println(ex);
+					ex.printStackTrace();
 				}
 			}
 		} catch (Exception ex) {

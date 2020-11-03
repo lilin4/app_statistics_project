@@ -10,7 +10,6 @@
     <modules>
         <module>app-logs-collect-web</module>
         <module>app-analyze-common</module>
-        <module>app-analyze-common</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -26,6 +25,19 @@
             <groupId>com.maxmind.db</groupId>
             <artifactId>maxmind-db</artifactId>
             <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.70</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

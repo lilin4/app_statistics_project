@@ -1,4 +1,4 @@
-package util;
+package com.atguigu.app.util;
 
 import java.beans.BeanInfo;
 import java.beans.Introspector;
@@ -13,8 +13,8 @@ public class PropertiesUtil {
         }
         
     }
-    
-    private static void copyProperties(Object src, Object dest) {
+
+    public static void copyProperties(Object src, Object dest) {
         try {
             //源对象BI
             BeanInfo bisrc = Introspector.getBeanInfo(src.getClass());

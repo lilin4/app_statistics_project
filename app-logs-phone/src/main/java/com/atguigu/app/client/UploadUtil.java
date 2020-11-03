@@ -1,5 +1,8 @@
 package com.atguigu.app.client;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,11 +16,14 @@ import java.net.URLConnection;
  * 模拟手机上报日志程序
  */
 public class UploadUtil {
+
+    private final Logger logger = LoggerFactory.getLogger(UploadUtil.class);
+    
     public static void upload(String json) {
         try /*(
                 InputStream in = ClassLoader.getSystemResourceAsStream("log.json");
         )*/ {
-            URL url = new URL("http://localhost:8080/coll/index");
+            URL url = new URL("http://192.168.1.116:8080/coll/index");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             //请求方式为post
             connection.setRequestMethod("POST");
@@ -42,7 +48,5 @@ public class UploadUtil {
         } catch (Exception e) {
             e.getMessage();
         }
-
-
     }
 }

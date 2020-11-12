@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.atguigu.app.util.GeoUtil;
 import com.atguigu.app.util.PropertiesUtil;
+import org.apache.hive.service.auth.HiveAuthFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
+import com.google.common.primitives.Booleans;
+import com.google.common.primitives.Ints;
 
 @RestController
 @RequestMapping("coll")

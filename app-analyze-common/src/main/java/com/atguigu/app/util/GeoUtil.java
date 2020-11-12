@@ -21,10 +21,12 @@ public class GeoUtil {
     private static InputStream in;
     private static Reader reader;
     static {
-        in = ClassLoader.getSystemResourceAsStream("GeoLite2-City.mmdb");
+        //in = ClassLoader.getSystemResourceAsStream("GeoLite2-City.mmdb");
         try{
+            ClassLoader loader = Thread.currentThread().getContextClassLoader();
+            in = loader.getResource("GeoLite2-City.mmdb").openStream();
             reader = new Reader(in);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
